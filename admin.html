@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<button class="sidebar-close" id="sidebarClose" type="button">
+Back
+</button>
+
+<div class="brand">
+<div class="brand-mark">EMS</div>
+
+<div class="brand-text">
+<h1>Admin Panel</h1>
+<p>Management Dashboard</p>
+</div>
+
+</div>
+
+<nav class="nav">
+
+<button class="nav-link " onclick="showPanel('dashboard')">
+Dashboard
+</button>
+
+<button class="nav-link" onclick="showPanel('employees')">
+Employees
+</button>
+
+<button class="nav-link" onclick="showPanel('leave')">
+Leave Requests
+</button>
+
+<button class="nav-link" onclick="showPanel('attendance')">
+Attendance
+</button>
+
+</nav>
+
+<div class="sidebar-footer">
+<span class="status-dot"></span>
+<span>Admin Online</span>
+</div>
+
+</aside>
+
+
+<!-- MAIN CONTENT -->
+
+<main class="content">
+
+<header class="topbar">
+
+<button class="menu-button" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false">
+Menu
+</button>
+
+<div>
+<h2>Admin Dashboard</h2>
+<p class="subtitle">Company overview</p>
+</div>
+
+</header>
+
+
+<!-- DASHBOARD PANEL -->
+
+<section class="panel active" id="dashboard">
+
+<div class="grid kpi-grid">
+
+<div class="card kpi">
+<p>Total Employees</p>
+<h3 id="totalEmployees">0</h3>
+</div>
+
+<div class="card kpi">
+<p>Pending Leaves</p>
+<h3>0</h3>
+</div>
+
+<div class="card kpi">
+<p>Attendance Today</p>
+<h3>0%</h3>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="panel" id="employees">
+
+<div class="panel-header">
+<h3>Employee Directory</h3>
+</div>
+
+<div class="employee-actions">
+<button class="primary-button" id="addEmployeeBtn">
+Add Employee
+</button>
+</div>
+
+
+<!-- ADD EMPLOYEE FORM -->
+
+<div class="card form-card" id="employeeFormCard" hidden>
+
+<h4>Add Employee</h4>
+
+<form id="employeeForm">
+
+<div class="form-grid">
+
+<label>
+Name
+<input name="name" required>
+</label>
+
+<label>
+Department
+<input name="department" required>
+</label>
+
+<label>
+Email
+<input name="email" required>
+</label>
+
+</div>
+
+<button class="primary-button">
+Save Employee
+</button>
+
+</form>
+
+</div>
+
+
+<!-- SPACE BETWEEN CARDS -->
+
+<div style="height:20px"></div>
+
+
+<!-- EMPLOYEE TABLE -->
+
+<div class="card table-card">
+
+<table class="table" id="employeeTable">
+
+<thead>
+<tr>
+<th>Name</th>
+<th>Department</th>
+<th>Email</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody></tbody>
+
+</table>
+
+
+</div>
+
+</section>
+
+
+<section class="panel" id="leave">
+
+<div class="panel-header">
+<h3>Leave Requests</h3>
+</div>
+
+<div class="card table-card">
+
+<table class="table" id="leaveTable">
+
+<thead>
+<tr>
+<th>Employee</th>
+<th>Type</th>
+<th>Start</th>
+<th>End</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody></tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- ATTENDANCE PANEL -->
+
+<section class="panel" id="attendance">
+
+<div class="panel-header">
+<h3>Attendance Log</h3>
+</div>
+
+<div class="card table-card">
+
+<table class="table" id="attendanceTable">
+
+<thead>
+
+<tr>
+<th>Employee</th>
+<th>Date</th>
+<th>Check In</th>
+<th>Check Out</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+
+<!-- ADMIN SCRIPT -->
+
+<script src="admin.js"></script>
+
+<script>
+
+function showPanel(panel){
+
+document.querySelectorAll(".panel")
+.forEach(p=>p.classList.remove("active"))
+
+document.getElementById(panel)
+.classList.add("active")
+
+}
+
+</script>
+
+</body>
+</html>
